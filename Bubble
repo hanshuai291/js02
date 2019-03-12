@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+            background-color: aquamarine;
+        }
+        #s{
+            background-color: blueviolet;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var bx = document.getElementById("box");
+            bx.onclick = function (event) {
+                alert("div is on click");
+                //cancell the bubble
+                event =  event|| window.event;
+                event.cancelBubble =  true;
+            }
+            var s1 = document.getElementById("s");
+            s.onclick = function (event) {
+                alert("span is on click");
+                event.cancelBubble = true;
+            }
+            var bd = document.body;
+            bd.onclick = function () {
+                alert("the page is on click");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id = "box">
+        a div
+        <span id="s"> a span</span>
+    </div>
+</body>
+</html>
