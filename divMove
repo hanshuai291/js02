@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      #box{
+          width: 30px;
+          height: 30px;
+          background-color: sandybrown;
+          position: absolute;
+      }
+        body{
+            height: 1000px;
+            width: 1000px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            document.onmousemove = function(event){
+                event = event || window.event;
+
+                var left = event.pageX;
+                var top = event.pageY;
+
+                box.style.left = left+"px";
+                box.style.top = top +"px";
+            }
+
+        }
+    </script>
+</head>
+<body>
+ <div id="box">
+
+ </div>
+</body>
+</html>
