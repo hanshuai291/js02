@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+    window.onload=function () {
+         var btn = document.getElementById("btn");
+        // btn.addEventListener("click",function () {
+        //     alert("1");
+        // },false)
+        //
+        // btn.attachEvent("onclick",function () {
+        //     alert("1");
+        // })
+        bind(btn,"click",function () {
+            alert("1");
+        })
+        function bind(obj,eventName,callback){
+            if (obj.addEventListener){
+                obj.addEventListener(eventName,callback,false);
+            }
+            else {
+                obj.attachEvent("on"+eventName,function () {
+                     callback.call(obj);
+                })
+            }
+
+        }
+    }
+    </script>
+</head>
+<body>
+    <button id="btn">click</button>
+
+</body>
+</html>
