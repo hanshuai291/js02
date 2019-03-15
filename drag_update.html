@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bbffaa;
+            position: absolute;
+        }
+
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: crimson;
+            position: absolute;
+            top: 200px;
+            left: 200px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var b1 = document.getElementById("box1");
+            var b2 = document.getElementById("box2");
+            drag_update(b1);
+            drag_update(b2);
+            function drag(obj){
+                obj.onmousedown = function (event) {
+                    event = event||window.event;
+                    if ( obj.setPointerCapture)
+                    {
+                         obj.setPointerCapture;
+                    }
+                    var ol = event.clientX-obj.offsetLeft;
+                    var ot = event.clientY-obj.offsetTop;
+
+                    document.onmousemove= function (event) {
+                        event = event||window.event;
+                        var l =  event.clientX -ol;
+                        var t = event.clientY - ot;
+
+                        obj.style.left = l +"px";
+                        obj.style.top = t +"px";
+                    }
+                    document.onmouseup=function (){
+
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+                    }
+                    if (obj.releasePointerCapture)
+                    {
+                        obj.releasePointerCapture();
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+ <div id = "box1">
+
+ </div>
+<div id="box2">
+
+</div>
+</body>
+</html>
