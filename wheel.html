@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #bx{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var bx = document.getElementById("bx");
+            bx.onmousewheel = function (event) {
+                event = event || window.event;
+                // alert(event.wheelDelta);
+                if (event.wheelDelta > 0) {
+                    bx.style.height = bx.clientHeight - 10 + "px";
+                } else {
+                    bx.style.height = bx.clientHeight + 10 + "px";
+                }
+                return false;
+
+            }
+        }
+    </script>
+</head>
+<body style="height: 2000px">
+<div id="bx">
+
+</div>
+</body>
+</html>
