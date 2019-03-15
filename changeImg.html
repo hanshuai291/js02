@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #start{
+            margin: 0px;
+            position: absolute;
+            left: 10px;
+        }
+        #stop{
+            position: absolute;
+            left: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var img = document.getElementById("img1")
+            var arr = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg","img/6.jpg","img/7.jpg","img/8.jpg","img/9.jpg","img/10.jpg"];
+            var timer;
+            var bt = document.getElementById("start");
+            bt.onclick=function () {
+                clearInterval(timer);
+                var index= 0;
+                timer = setInterval(function () {
+                    index ++;
+                    // if (index>=arr.length)
+                    // {
+                    //     index = 0;
+                    // }
+                    index = index %=10;
+                    img.src = arr[index];
+                } ,1000)
+            }
+            var bt2 = document.getElementById("stop");
+            bt2.onclick =function () {
+                clearInterval(timer);
+            }
+        }
+    </script>
+</head>
+<body>
+<img id="img1" src = img/1.jpg>
+<br>
+<button id="start">start</button>
+<button id="stop">stop</button>
+</body>
+</html>
